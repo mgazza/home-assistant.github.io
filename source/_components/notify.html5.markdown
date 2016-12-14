@@ -34,6 +34,13 @@ Configuration variables:
 ### {% linkable_title Getting ready for Chrome %}
 Create new project at https://console.cloud.google.com/home/dashboard
 Go to https://console.cloud.google.com/apis/credentials/domainverification and verify your domain 
+Google will ask you to download a file and host it on your server. If you are using Apache as a proxy you can do this by adding an exception to the proxy. Copy the file to your Home Assistant Directory /home/pi/.homeassistant typically. Add an exclusion to the top of your proxy configuration 'ProxyPass /google****.html ! '. At the bottom of this file add the following 'Alias /google****.html /home/pi/.homeassistant/google****.html' and finally allow free access.
+'
+  <Location /google69231ef13e56d6fc.html>
+   Require all granted
+  </Location>
+'
+
 After that, go to https://console.firebase.google.com and select import Google project, select the project you created
 Then, click the clogwheel on top left and select Project settings
 Select Cloud messaging tab
